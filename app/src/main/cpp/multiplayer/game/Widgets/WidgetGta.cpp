@@ -131,18 +131,7 @@ uintptr_t CWidget_hook(CWidgetButton* thiz, const char* name, uintptr_t*  a3, in
 void (*CWidget__SetEnabled)(CWidgetGta* pWidget, bool bEnabled);
 void CWidget__SetEnabled_hook(CWidgetGta* pWidget, bool bEnabled)
 {
-    if (CTouchInterface::m_pWidgets) {
-        // Hide Targeting/Aim buttons if player is unarmed (Fist = 0) or holding melee weapons (< 22 or > 38)
-        if (pWidget == CTouchInterface::m_pWidgets[WidgetIDs::WIDGET_ENTER_TARGETING] ||
-            pWidget == CTouchInterface::m_pWidgets[WidgetIDs::WIDGET_EXIT_TARGETING]) {
-            if (pGame && pGame->FindPlayerPed()) {
-                uint8_t curWeapon = pGame->FindPlayerPed()->GetCurrentWeapon();
-                if (curWeapon < 22 || curWeapon > 38) {
-                    bEnabled = false;
-                }
-            }
-        }
-    }
+
     if(pNetGame)
     {
         switch(ProcessFixedWidget(pWidget))
@@ -159,18 +148,7 @@ void CWidget__SetEnabled_hook(CWidgetGta* pWidget, bool bEnabled)
 
 void (*CWidgetButton__Update)(CWidgetButton* thiz);
 void CWidgetButton__Update_hook(CWidgetButton* thiz) {
-    if (CTouchInterface::m_pWidgets) {
-        if (thiz == (CWidgetButton*)CTouchInterface::m_pWidgets[WidgetIDs::WIDGET_ENTER_TARGETING] ||
-            thiz == (CWidgetButton*)CTouchInterface::m_pWidgets[WidgetIDs::WIDGET_EXIT_TARGETING]) {
-            if (pGame && pGame->FindPlayerPed()) {
-                uint8_t curWeapon = pGame->FindPlayerPed()->GetCurrentWeapon();
-                if (curWeapon < 22 || curWeapon > 38) {
-                    CWidget__SetEnabled(thiz, false);
-                    return;
-                }
-            }
-        }
-    }
+
 
     if(pNetGame)
     {
