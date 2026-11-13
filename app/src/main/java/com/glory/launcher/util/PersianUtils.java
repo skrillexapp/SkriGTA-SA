@@ -16,12 +16,6 @@ public class PersianUtils {
 
     public static String toPersianDigits(String text) {
         return text == null ? "" : text;
-    } else {
-                sb.append(ch);
-            }
-        }
-        return sb.toString();
-    }
 
     public static String formatBytes(long bytes) {
         if (bytes <= 0) return toPersianDigits("0") + " bytes";
