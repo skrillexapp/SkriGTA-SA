@@ -114,7 +114,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (chatFont < 14) chatFont = 14;
         if (chatFont > 36) chatFont = 36;
         seekbarChatFont.setProgress(chatFont - 14);
-        tvChatFontLabel.setText(String.format(Locale.getDefault(), "اندازه قلم چت: %dpt", chatFont));
+        tvChatFontLabel.setText(String.format(Locale.getDefault(), "Tamaño de fuente del chat: %dpt", chatFont));
 
         int chatWidth = 45;
         try {
@@ -124,7 +124,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (chatWidth < 30) chatWidth = 30;
         if (chatWidth > 70) chatWidth = 70;
         seekbarChatWidth.setProgress(chatWidth - 30);
-        tvChatWidthLabel.setText(String.format(Locale.getDefault(), "عرض کادر چت: %d%%", chatWidth));
+        tvChatWidthLabel.setText(String.format(Locale.getDefault(), "Ancho del chat: %d%%", chatWidth));
 
         int chatLines = 7;
         try {
@@ -134,7 +134,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (chatLines < 4) chatLines = 4;
         if (chatLines > 15) chatLines = 15;
         seekbarChatLines.setProgress(chatLines - 4);
-        tvChatLinesLabel.setText(String.format(Locale.getDefault(), "تعداد خطوط چت: %d خط", chatLines));
+        tvChatLinesLabel.setText(String.format(Locale.getDefault(), "Líneas de chat: %d", chatLines));
     }
 
     @Override
@@ -178,7 +178,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 int font = 14 + progress;
-                tvChatFontLabel.setText(String.format(Locale.getDefault(), "اندازه قلم چت: %dpt", font));
+                tvChatFontLabel.setText(String.format(Locale.getDefault(), "Tamaño de fuente del chat: %dpt", font));
             }
             @Override public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override public void onStopTrackingTouch(SeekBar seekBar) {}
@@ -188,7 +188,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 int width = 30 + progress;
-                tvChatWidthLabel.setText(String.format(Locale.getDefault(), "عرض کادر چت: %d%%", width));
+                tvChatWidthLabel.setText(String.format(Locale.getDefault(), "Ancho del chat: %d%%", width));
             }
             @Override public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override public void onStopTrackingTouch(SeekBar seekBar) {}
@@ -198,7 +198,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 int lines = 4 + progress;
-                tvChatLinesLabel.setText(String.format(Locale.getDefault(), "تعداد خطوط چت: %d خط", lines));
+                tvChatLinesLabel.setText(String.format(Locale.getDefault(), "Líneas de chat: %d", lines));
             }
             @Override public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override public void onStopTrackingTouch(SeekBar seekBar) {}
@@ -259,7 +259,7 @@ public class SettingsActivity extends AppCompatActivity {
         syncToSettingsIni(selectedFps, switchFpsCounter != null && switchFpsCounter.isChecked(), chatLines, chatFont, chatWidth);
 
         if (showToast) {
-            Toast.makeText(this, "تنظیمات با موفقیت ذخیره شد", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ajustes guardados correctamente", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -283,12 +283,12 @@ public class SettingsActivity extends AppCompatActivity {
         if (seekbarChatWidth != null) seekbarChatWidth.setProgress(15); // 45
         if (seekbarChatLines != null) seekbarChatLines.setProgress(3); // 7
 
-        tvChatFontLabel.setText("اندازه قلم چت: 20pt");
-        tvChatWidthLabel.setText("عرض کادر چت: 45%");
-        tvChatLinesLabel.setText("تعداد خطوط چت: 7 خط");
+        tvChatFontLabel.setText("Tamaño de fuente del chat: 20pt");
+        tvChatWidthLabel.setText("Ancho del chat: 45%");
+        tvChatLinesLabel.setText("Líneas de chat: 7");
 
         persistSettings(false);
-        Toast.makeText(this, "تنظیمات به حالت پیش‌فرض بازگردانی شد", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Ajustes restablecidos", Toast.LENGTH_SHORT).show();
     }
 
     private void syncToSettingsIni(int fpsLimit, boolean fpsCounter, int chatLines, int chatFontSize, int chatWidth) {

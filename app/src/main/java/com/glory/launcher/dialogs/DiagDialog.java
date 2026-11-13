@@ -39,14 +39,14 @@ public class DiagDialog extends Dialog {
     };
 
     private static final String[] BISECT_DESCS = {
-            "nohook_pipelines (غیرفعال‌سازی هوک پایپ‌لاین گرافیک)",
-            "no_weapon_hooks (غیرفعال‌سازی هوک‌های تیراندازی و اسلحه)",
-            "no_radar_sync (غیرفعال‌سازی همگام‌سازی رادار)",
-            "no_chat_touch (غیرفعال‌سازی رهگیری لمس چت)",
-            "no_chat (عدم رندر چت داخل بازی)",
-            "no_money_sync (غیرفعال‌سازی همگام‌سازی پول)",
-            "no_weapon_hud (غیرفعال‌سازی JNI آیکون و تیر اسلحه در HUD)",
-            "no_perf_logger (غیرفعال‌سازی لاگر عملکرد PERF)"
+            "nohook_pipelines (Desactivar hooks gráficos)",
+            "no_weapon_hooks (Desactivar hooks de armas)",
+            "no_radar_sync (Desactivar sincronización de radar)",
+            "no_chat_touch (Desactivar toque en chat)",
+            "no_chat (Ocultar chat del juego)",
+            "no_money_sync (Desactivar sincronización de dinero)",
+            "no_weapon_hud (Desactivar HUD de armas JNI)",
+            "no_perf_logger (Desactivar log de rendimiento)"
     };
 
     private TextView logTextView;
@@ -87,7 +87,7 @@ public class DiagDialog extends Dialog {
 
         // Header Title
         TextView title = new TextView(getContext());
-        title.setText("پنل عیب‌یابی (Diagnostics & Crash Analyzer)");
+        title.setText("Panel de Diagnóstico");
         title.setTextColor(Color.parseColor("#DAA520"));
         title.setTextSize(18);
         title.setGravity(Gravity.CENTER);
@@ -96,7 +96,7 @@ public class DiagDialog extends Dialog {
 
         // Section: Symbols Info
         TextView symTitle = new TextView(getContext());
-        symTitle.setText("اطلاعات نمادها و نسخه (Symbols & Build Info):");
+        symTitle.setText("Información de compilación:");
         symTitle.setTextColor(Color.WHITE);
         symTitle.setTextSize(14);
         symTitle.setPadding(0, 8, 0, 8);
@@ -115,18 +115,18 @@ public class DiagDialog extends Dialog {
         root.addView(symInfo);
 
         Button copySymBtn = new Button(getContext());
-        copySymBtn.setText("کپی مشخصات بیلد و نمادها");
+        copySymBtn.setText("Copiar info de compilación");
         copySymBtn.setTextColor(Color.BLACK);
         copySymBtn.setBackgroundColor(Color.parseColor("#DAA520"));
         copySymBtn.setOnClickListener(v -> {
             copyToClipboard("GloryRP Build & Symbols", infoText);
-            Toast.makeText(getContext(), "اطلاعات نمادها کپی شد", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Información copiada", Toast.LENGTH_SHORT).show();
         });
         root.addView(copySymBtn);
 
         // Section: Bisect Switches
         TextView bisectTitle = new TextView(getContext());
-        bisectTitle.setText("\nکلیدهای بای‌سکت تست (Bisect Switches):");
+        bisectTitle.setText("\nInterruptores de diagnóstico:");
         bisectTitle.setTextColor(Color.WHITE);
         bisectTitle.setTextSize(14);
         bisectTitle.setPadding(0, 16, 0, 8);
@@ -147,13 +147,13 @@ public class DiagDialog extends Dialog {
                 try {
                     if (isChecked) {
                         flagFile.createNewFile();
-                        Toast.makeText(getContext(), "فعال شد: " + flagName, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Activado: " + flagName, Toast.LENGTH_SHORT).show();
                     } else {
                         if (flagFile.exists()) flagFile.delete();
-                        Toast.makeText(getContext(), "غیرفعال شد: " + flagName, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Desactivado: " + flagName, Toast.LENGTH_SHORT).show();
                     }
                 } catch (IOException e) {
-                    Toast.makeText(getContext(), "خطا در تغییر فایل پرچم: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Error al guardar bandera: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
             root.addView(cb);
@@ -161,7 +161,7 @@ public class DiagDialog extends Dialog {
 
         // Section: Diag Log
         TextView logSectionTitle = new TextView(getContext());
-        logSectionTitle.setText("\nمحتوای diag_log.txt:");
+        logSectionTitle.setText("\nContenido de diag_log.txt:");
         logSectionTitle.setTextColor(Color.WHITE);
         logSectionTitle.setTextSize(14);
         logSectionTitle.setPadding(0, 16, 0, 8);
@@ -181,25 +181,25 @@ public class DiagDialog extends Dialog {
         btnRow.setPadding(0, 16, 0, 16);
 
         Button copyLogBtn = new Button(getContext());
-        copyLogBtn.setText("کپی لاگ");
+        copyLogBtn.setText("Copiar Log");
         copyLogBtn.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
         copyLogBtn.setOnClickListener(v -> {
             copyToClipboard("diag_log.txt", logTextView.getText().toString());
-            Toast.makeText(getContext(), "لاگ در حافظه کپی شد", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Log copiado", Toast.LENGTH_SHORT).show();
         });
         btnRow.addView(copyLogBtn);
 
         Button refreshBtn = new Button(getContext());
-        refreshBtn.setText("بروزرسانی");
+        refreshBtn.setText("Actualizar");
         refreshBtn.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
         refreshBtn.setOnClickListener(v -> {
             loadDiagLog();
-            Toast.makeText(getContext(), "لاگ بروز شد", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Log actualizado", Toast.LENGTH_SHORT).show();
         });
         btnRow.addView(refreshBtn);
 
         Button clearBtn = new Button(getContext());
-        clearBtn.setText("پاکسازی لاگ");
+        clearBtn.setText("Limpiar Log");
         clearBtn.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
         clearBtn.setOnClickListener(v -> {
             File logFile = new File(getGameDirectory(), "diag_log.txt");
@@ -209,14 +209,14 @@ public class DiagDialog extends Dialog {
                 } catch (IOException ignored) {}
             }
             loadDiagLog();
-            Toast.makeText(getContext(), "لاگ پاک شد", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Log limpiado", Toast.LENGTH_SHORT).show();
         });
         btnRow.addView(clearBtn);
 
         root.addView(btnRow);
 
         Button closeBtn = new Button(getContext());
-        closeBtn.setText("بستن پنل");
+        closeBtn.setText("Cerrar panel");
         closeBtn.setBackgroundColor(Color.parseColor("#444444"));
         closeBtn.setTextColor(Color.WHITE);
         closeBtn.setOnClickListener(v -> dismiss());
@@ -229,7 +229,7 @@ public class DiagDialog extends Dialog {
     private void loadDiagLog() {
         File logFile = new File(getGameDirectory(), "diag_log.txt");
         if (!logFile.exists()) {
-            logTextView.setText("فایل diag_log.txt هنوز ایجاد نشده است.\nمسیر: " + logFile.getAbsolutePath());
+            logTextView.setText("diag_log.txt aún no existe.\nRuta: " + logFile.getAbsolutePath());
             return;
         }
 
@@ -240,12 +240,12 @@ public class DiagDialog extends Dialog {
                 sb.append(line).append("\n");
             }
             if (sb.length() == 0) {
-                logTextView.setText("فایل لاگ خالی است.");
+                logTextView.setText("El log está vacío.");
             } else {
                 logTextView.setText(sb.toString());
             }
         } catch (Exception e) {
-            logTextView.setText("خطا در خواندن فایل لاگ: " + e.getMessage());
+            logTextView.setText("Error al leer log: " + e.getMessage());
         }
     }
 

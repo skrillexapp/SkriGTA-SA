@@ -81,7 +81,7 @@ public class NicknameHelper {
         }
 
         if (trimmed.length() > 24) {
-            return new ValidationResult(false, "طول نام کاربری نباید بیشتر از ۲۴ نویسه باشد");
+            return new ValidationResult(false, "El nombre no puede superar 24 caracteres");
         }
 
         return new ValidationResult(true, null);
@@ -140,14 +140,14 @@ public class NicknameHelper {
         layout.setBackgroundResource(R.drawable.card_translucent_bg);
 
         TextView title = new TextView(activity);
-        title.setText("تغییر نام کاربری");
+        title.setText("Cambiar nombre");
         title.setTextSize(18);
         title.setTextColor(Color.WHITE);
         title.setGravity(Gravity.CENTER);
         layout.addView(title);
 
         TextView subtitle = new TextView(activity);
-        subtitle.setText("نام خود را با فرمت Name_Family وارد کنید");
+        subtitle.setText("Ingresa tu nombre en formato Nombre_Apellido");
         subtitle.setTextSize(13);
         subtitle.setTextColor(Color.parseColor("#B3B0C8"));
         subtitle.setGravity(Gravity.CENTER);
@@ -156,7 +156,7 @@ public class NicknameHelper {
 
         EditText input = new EditText(activity);
         input.setText(getNickname(activity));
-        input.setHint("مثال: Ali_Reza");
+        input.setHint("Ej: Carlos_Perez");
         input.setHintTextColor(Color.parseColor("#7A7395"));
         input.setTextColor(Color.WHITE);
         input.setTextSize(15);
@@ -172,14 +172,14 @@ public class NicknameHelper {
         btnLayout.setPadding(0, 32, 0, 0);
 
         Button btnCancel = new Button(activity);
-        btnCancel.setText("انصراف");
+        btnCancel.setText("Cancelar");
         btnCancel.setTextColor(Color.parseColor("#B3B0C8"));
         btnCancel.setBackgroundColor(Color.TRANSPARENT);
         btnCancel.setOnClickListener(v -> dialog.dismiss());
         btnLayout.addView(btnCancel);
 
         Button btnSave = new Button(activity);
-        btnSave.setText("ذخیره");
+        btnSave.setText("Guardar");
         btnSave.setTextColor(Color.parseColor("#14091f"));
         btnSave.setBackgroundResource(R.drawable.btn_amber_selector);
         LinearLayout.LayoutParams saveParams = new LinearLayout.LayoutParams(
@@ -198,7 +198,7 @@ public class NicknameHelper {
             }
 
             saveNickname(activity, newNick);
-            Toasty.success(activity, "نام کاربری با موفقیت ذخیره شد", Toast.LENGTH_SHORT).show();
+            Toasty.success(activity, "Nombre guardado correctamente", Toast.LENGTH_SHORT).show();
             dialog.dismiss();
 
             if (listener != null) {

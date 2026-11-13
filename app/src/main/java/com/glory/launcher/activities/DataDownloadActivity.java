@@ -85,11 +85,11 @@ public class DataDownloadActivity extends AppCompatActivity implements DataDownl
         btnPauseResume.setOnClickListener(v -> {
             if (isPaused) {
                 isPaused = false;
-                btnPauseResume.setText("توقف");
+                btnPauseResume.setText("Pausar");
                 DataDownloadService.resume(this);
             } else {
                 isPaused = true;
-                btnPauseResume.setText("ادامه");
+                btnPauseResume.setText("Continuar");
                 DataDownloadService.pause(this);
             }
         });
@@ -132,16 +132,16 @@ public class DataDownloadActivity extends AppCompatActivity implements DataDownl
         runOnUiThread(() -> {
             updateSteps(info.step);
 
-            tvProgressPercent.setText(PersianUtils.toPersianDigits(info.percent) + "٪");
+            tvProgressPercent.setText(PersianUtils.toPersianDigits(info.percent) + "%");
             pbDownload.setProgress(info.percent);
 
             String formattedDownloaded = PersianUtils.formatBytes(info.bytesDownloaded);
             String formattedTotal = PersianUtils.formatBytes(info.totalBytes);
-            tvProgressBytes.setText(formattedDownloaded + " از " + formattedTotal);
+            tvProgressBytes.setText(formattedDownloaded + " de " + formattedTotal);
 
             tvDownloadSpeed.setText(PersianUtils.formatSpeed(info.speedBytesPerSec));
             if (info.etaSeconds > 0) {
-                tvDownloadEta.setText(PersianUtils.formatDuration(info.etaSeconds) + " باقی‌مانده");
+                tvDownloadEta.setText(PersianUtils.formatDuration(info.etaSeconds) + " restante");
             } else {
                 tvDownloadEta.setText("--:--");
             }
@@ -152,10 +152,10 @@ public class DataDownloadActivity extends AppCompatActivity implements DataDownl
 
             if (info.step == DataDownloadService.DownloadStep.PAUSED) {
                 isPaused = true;
-                btnPauseResume.setText("ادامه");
+                btnPauseResume.setText("Continuar");
             } else if (info.step == DataDownloadService.DownloadStep.DOWNLOADING) {
                 isPaused = false;
-                btnPauseResume.setText("توقف");
+                btnPauseResume.setText("Pausar");
             }
         });
     }
@@ -168,11 +168,11 @@ public class DataDownloadActivity extends AppCompatActivity implements DataDownl
             setStepDone(step3Badge, step3Text);
             setStepDone(step4Badge, step4Text);
 
-            tvProgressPercent.setText(PersianUtils.toPersianDigits("100") + "٪");
+            tvProgressPercent.setText(PersianUtils.toPersianDigits("100") + "%");
             pbDownload.setProgress(100);
-            tvDownloadSpeed.setText("تکمیل شد");
-            tvDownloadEta.setText("۰:۰۰");
-            tvStatusMessage.setText("دیتای بازی با موفقیت نصب شد. آماده اجرای بازی!");
+            tvDownloadSpeed.setText("Completado");
+            tvDownloadEta.setText("0:00");
+            tvStatusMessage.setText("¡Archivos instalados! Listo para jugar.");
             tvStatusMessage.setTextColor(0xFF2ECC71);
 
             layoutActions.setVisibility(View.GONE);
@@ -184,7 +184,7 @@ public class DataDownloadActivity extends AppCompatActivity implements DataDownl
     @Override
     public void onError(String message) {
         runOnUiThread(() -> {
-            tvStatusMessage.setText(message != null ? message : "خطایی در دانلود یا نصب دیتا رخ داد");
+            tvStatusMessage.setText(message != null ? message : "Ocurrió un error al descargar o instalar");
             tvStatusMessage.setTextColor(0xFFEF4444);
             layoutActions.setVisibility(View.GONE);
             btnRetry.setVisibility(View.VISIBLE);

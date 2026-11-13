@@ -24,7 +24,7 @@
         android:layout_marginEnd="@dimen/_5sdp"
         android:fontFamily="@font/akrobat_bold"
         android:letterSpacing="0.2"
-        android:text="در حال ورود به بازی..."
+        android:text="Entrando al servidor..."
         android:textColor="#ffffffff"
         android:textSize="@dimen/_12sdp"
         app:layout_constraintBottom_toBottomOf="@+id/loader"

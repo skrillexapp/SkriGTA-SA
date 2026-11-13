@@ -86,32 +86,32 @@ public class ChooseServerActivity extends AppCompatActivity {
     }
 
     private void setupClickListeners() {
-        // Left Card: Forum ("ورود به انجمن")
+        // Left Card: Forum ("Ir al Foro")
         playCrimeBtn.setOnClickListener(v -> {
             try {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(Links.FORUM));
                 startActivity(intent);
             } catch (Exception e) {
-                Toast.makeText(ChooseServerActivity.this, "امکان باز کردن انجمن وجود ندارد", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChooseServerActivity.this, "No se puede abrir el foro", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Middle Card: Play Game ("ورود به بازی") - uses shared GameLaunchHelper
+        // Middle Card: Play Game ("Jugar Ahora") - uses shared GameLaunchHelper
         playGoldBtn.setOnClickListener(v -> {
             GameLaunchHelper.executePlayFlow(ChooseServerActivity.this, 1, null);
         });
 
-        // Right Card: Website ("ورود به سایت")
+        // Right Card: Website ("Ir al Portal")
         playRublBtn.setOnClickListener(v -> {
             try {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(Links.SITE));
                 startActivity(intent);
             } catch (Exception e) {
-                Toast.makeText(ChooseServerActivity.this, "امکان باز کردن وب‌سایت وجود ندارد", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChooseServerActivity.this, "No se puede abrir el sitio web", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Bottom Button: Back to Main Menu ("بازگشت به منوی اصلی")
+        // Bottom Button: Back to Main Menu ("Volver al menú principal")
         backBtn.setOnClickListener(v -> {
             Intent intent = new Intent(ChooseServerActivity.this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);

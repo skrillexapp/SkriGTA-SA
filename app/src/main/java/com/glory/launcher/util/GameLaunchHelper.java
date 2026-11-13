@@ -32,12 +32,12 @@ public class GameLaunchHelper {
         MainActivity.GameDataStatus status = MainActivity.evaluateGameDataStatus(activity);
         if (status == MainActivity.GameDataStatus.MISSING) {
             new AlertDialog.Builder(activity)
-                .setTitle("دیتای بازی یافت نشد")
-                .setMessage("برای ورود به بازی ابتدا باید دیتای بازی نصب شود.")
-                .setPositiveButton("دانلود دیتای بازی", (dialog, which) -> {
+                .setTitle("Archivos del juego no encontrados")
+                .setMessage("Primero debes descargar los archivos del juego para entrar.")
+                .setPositiveButton("Descargando archivos del juego", (dialog, which) -> {
                     activity.startActivity(new Intent(activity, DataDownloadActivity.class));
                 })
-                .setNegativeButton("انصراف", null)
+                .setNegativeButton("Cancelar", null)
                 .show();
             return;
         }
@@ -47,7 +47,7 @@ public class GameLaunchHelper {
         if (manifest != null && manifest.getLauncher() != null) {
             int remoteVerCode = manifest.getLauncher().getVersionCode();
             int currentVerCode = BuildConfig.VERSION_CODE;
-            if (remoteVerCode > 0 && remoteVerCode != currentVerCode) {
+            if (remoteVerCode > 0 && remoteVerCode > currentVerCode) {
                 if (BuildConfig.DEBUG) {
                     Log.i(TAG, "Forced update check (DEBUG build, not blocking): " + remoteVerCode + " vs " + currentVerCode);
                 } else {

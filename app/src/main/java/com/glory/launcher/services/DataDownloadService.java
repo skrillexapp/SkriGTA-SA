@@ -170,14 +170,14 @@ public class DataDownloadService extends Service {
 
         String action = intent.getAction();
         if (ACTION_START.equals(action)) {
-            startForegroundNotification("در حال آماده‌سازی دانلود...", 0);
+            startForegroundNotification("Preparando descarga...", 0);
             isPaused = false;
             isCancelled = false;
             downloadExecutor.execute(this::runDownloadPipeline);
         } else if (ACTION_PAUSE.equals(action)) {
             isPaused = true;
             updateProgress(DownloadStep.PAUSED, currentProgress.bytesDownloaded, currentProgress.totalBytes,
-                    currentProgress.percent, 0, 0, "دانلود متوقف شد");
+                    currentProgress.percent, 0, 0, "Descarga pausada");
         } else if (ACTION_RESUME.equals(action)) {
             if (isPaused) {
                 isPaused = false;
@@ -203,14 +203,14 @@ public class DataDownloadService extends Service {
         }
 
         if (manifest == null || manifest.getData() == null) {
-            dispatchError("اطلاعات دیتای بازی در دسترس نیست");
+            dispatchError("Información de archivos no disponible");
             return;
         }
 
         LauncherManifest.DataInfo dataInfo = manifest.getData();
         List<LauncherManifest.DataFile> files = dataInfo.getFiles();
         if (files == null || files.isEmpty()) {
-            dispatchError("فایل دانلودی در مانیفست تعریف نشده است");
+            dispatchError("No hay archivo definido en manifest.json");
             return;
         }
 
@@ -256,7 +256,7 @@ public class DataDownloadService extends Service {
             extractionFailures = 0;
         }
 
-        updateProgress(DownloadStep.CHECKING_SPACE, 0, 0, 0, 0, 0, "بررسی فضای ذخیره‌سازی...");
+        updateProgress(DownloadStep.CHECKING_SPACE, 0, 0, 0, 0, 0, "Verificando espacio libre...");
 
         String baseUrl = dataInfo.getBaseUrl();
         if (baseUrl == null) baseUrl = "";
@@ -284,7 +284,7 @@ public class DataDownloadService extends Service {
             StatFs statFs = new StatFs(gameDir.getAbsolutePath());
             long availableBytes = statFs.getAvailableBytes();
             if (totalZipBytes > 0 && availableBytes < neededBytes) {
-                dispatchError("فضای کافی در حافظه دستگاه موجود نیست. حداقل " + PersianUtils.formatBytes(neededBytes) + " فضا نیاز است.");
+                dispatchError("Espacio insuficiente. Necesitas al menos " + PersianUtils.formatBytes(neededBytes) + " de espacio libre.");
                 return;
             }
         } catch (Exception e) {
@@ -391,7 +391,7 @@ public class DataDownloadService extends Service {
                                     if (percent > 100) percent = 100;
 
                                     updateProgress(DownloadStep.DOWNLOADING, overallBytesDownloaded, overallTotalBytes,
-                                            percent, speed, eta, "در حال دانلود دیتای بازی...");
+                                            percent, speed, eta, "Descargando archivos del juego...");
                                     lastUpdate = now;
                                     bytesSinceLastUpdate = 0;
                                 }
@@ -404,7 +404,7 @@ public class DataDownloadService extends Service {
                             retries++;
                             Log.w(TAG, "Size mismatch for " + df.getName() + ": expected " + df.getSize() + ", got " + partFile.length());
                             if (retries >= 3) {
-                                dispatchError("خطا در حجم فایل دانلود شده (" + df.getName() + ")");
+                                dispatchError("Error en tamaño del archivo (" + df.getName() + ")");
                                 return;
                             }
                             Thread.sleep(1000 * retries);
@@ -416,7 +416,7 @@ public class DataDownloadService extends Service {
                         Log.e(TAG, "Download error on " + df.getName(), e);
                         retries++;
                         if (retries >= 3) {
-                            dispatchError("خطا در اتصال به سرور: " + e.getMessage());
+                            dispatchError("Error de conexión al servidor: " + e.getMessage());
                             return;
                         }
                         try {
@@ -430,10 +430,10 @@ public class DataDownloadService extends Service {
                 // Verify SHA-256 only if non-empty
                 if (df.getSha256() != null && !df.getSha256().trim().isEmpty()) {
                     updateProgress(DownloadStep.VERIFYING, overallBytesDownloaded, overallTotalBytes,
-                            100, 0, 0, "در حال بررسی سلامت فایل...");
+                            100, 0, 0, "Verificando integridad...");
                     if (!verifySha256(partFile, df.getSha256())) {
                         partFile.delete();
-                        dispatchError("کد اعتبارسنجی فایل (SHA256) مطابقت ندارد");
+                        dispatchError("El hash SHA256 del archivo no coincide");
                         return;
                     }
                 }
@@ -449,14 +449,14 @@ public class DataDownloadService extends Service {
 
     private void performExtraction(File gameDir, File tmpDir, List<LauncherManifest.DataFile> files, LauncherManifest.DataInfo dataInfo) {
         updateProgress(DownloadStep.EXTRACTING, currentProgress.totalBytes, currentProgress.totalBytes,
-                100, 0, 0, "در حال استخراج و نصب فایل‌ها...");
+                100, 0, 0, "Extrayendo e instalando archivos...");
 
         for (LauncherManifest.DataFile df : files) {
             if (isCancelled || isPaused) return;
 
             File zipFile = new File(tmpDir, df.getName());
             if (!zipFile.exists()) {
-                dispatchError("فایل فشرده دیتا یافت نشد: " + df.getName());
+                dispatchError("Archivo comprimido no encontrado: " + df.getName());
                 return;
             }
 
@@ -465,7 +465,7 @@ public class DataDownloadService extends Service {
             } catch (Exception e) {
                 extractionFailures++;
                 Log.e(TAG_EXTRACT, "Extraction failed (attempt " + extractionFailures + "): " + e.getMessage(), e);
-                dispatchError("خطا در استخراج فایل‌های بازی: " + e.getMessage());
+                dispatchError("Error al extraer archivos: " + e.getMessage());
                 return;
             }
         }
@@ -486,12 +486,12 @@ public class DataDownloadService extends Service {
         // Run evaluateGameDataStatus() (expect COMPLETE; else show error with retry)
         MainActivity.GameDataStatus finalStatus = MainActivity.evaluateGameDataStatus(this);
         if (finalStatus != MainActivity.GameDataStatus.COMPLETE) {
-            dispatchError("برخی از پوشه‌های اصلی بازی پس از استخراج یافت نشدند (وضعیت: " + finalStatus + ")");
+            dispatchError("Faltan carpetas del juego tras extraer (estado: " + finalStatus + ")");
             return;
         }
 
         updateProgress(DownloadStep.COMPLETED, currentProgress.totalBytes, currentProgress.totalBytes,
-                100, 0, 0, "نصب دیتای بازی با موفقیت پایان یافت");
+                100, 0, 0, "Instalación completada");
 
         showCompletionNotification();
 
@@ -628,7 +628,7 @@ public class DataDownloadService extends Service {
                                 int percent = (int) ((totalBytesExtracted * 100) / totalTargetBytes);
                                 if (percent > 100) percent = 100;
                                 updateProgress(DownloadStep.EXTRACTING, totalBytesExtracted, totalTargetBytes,
-                                        percent, 0, 0, "در حال استخراج: " + rawName);
+                                        percent, 0, 0, "Extrayendo: " + rawName);
                             }
                         }
                         os.flush();
@@ -770,7 +770,7 @@ public class DataDownloadService extends Service {
             currentProgress.statusText = errorMessage;
         }
 
-        updateNotification("خطا: " + errorMessage, 0);
+        updateNotification("Error: " + errorMessage, 0);
 
         mainHandler.post(() -> {
             synchronized (lock) {
@@ -785,10 +785,10 @@ public class DataDownloadService extends Service {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID,
-                    "دانلود دیتای بازی",
+                    "Descargando archivos del juego",
                     NotificationManager.IMPORTANCE_LOW
             );
-            channel.setDescription("اعلان پیشرفت دانلود و نصب دیتای بازی");
+            channel.setDescription("Progreso de descarga e instalación");
             if (notificationManager != null) {
                 notificationManager.createNotificationChannel(channel);
             }
@@ -817,8 +817,8 @@ public class DataDownloadService extends Service {
                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? PendingIntent.FLAG_IMMUTABLE : 0);
 
             Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                    .setContentTitle("دیتای بازی GloryRP")
-                    .setContentText("نصب دیتای بازی با موفقیت به پایان رسید.")
+                    .setContentTitle("Archivos de SkriGTA-SA")
+                    .setContentText("Instalación de archivos completada.")
                     .setSmallIcon(R.drawable.ic_baseline_notifications_24)
                     .setAutoCancel(true)
                     .setContentIntent(pi)
@@ -834,7 +834,7 @@ public class DataDownloadService extends Service {
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? PendingIntent.FLAG_IMMUTABLE : 0);
 
         return new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("دانلود دیتای بازی GloryRP")
+                .setContentTitle("Descarga SkriGTA-SA")
                 .setContentText(text)
                 .setSmallIcon(R.drawable.ic_baseline_notifications_24)
                 .setProgress(100, progress, progress == 0)

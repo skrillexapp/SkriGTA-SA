@@ -77,7 +77,7 @@
                     android:id="@+id/tv_download_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="در حال دانلود دیتای بازی"
+                    android:text="Descargando archivos del juego"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -87,7 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="لطفاً برنامه را نبندید"
+                    android:text="Por favor, no cierres la aplicación"
                     android:textColor="#A69BBB"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -102,7 +102,7 @@
             android:gravity="center_vertical"
             android:layout_marginTop="22dp">
 
-            <!-- Step 1: دانلود -->
+            <!-- Step 1: Descargar -->
             <LinearLayout
                 android:id="@+id/step_1_container"
                 android:layout_width="0dp"
@@ -116,7 +116,7 @@
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:gravity="center"
-                    android:text="۱"
+                    android:text="1"
                     android:textColor="#FFFFFF"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -127,7 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="دانلود"
+                    android:text="Descargar"
                     android:textColor="#F5A30A"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -139,7 +139,7 @@
                 android:layout_weight="0.5"
                 android:background="#3A2A55" />
 
-            <!-- Step 2: بررسی فایل -->
+            <!-- Step 2: Verificando -->
             <LinearLayout
                 android:id="@+id/step_2_container"
                 android:layout_width="0dp"
@@ -153,7 +153,7 @@
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:gravity="center"
-                    android:text="۲"
+                    android:text="2"
                     android:textColor="#A69BBB"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -164,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="بررسی فایل"
+                    android:text="Verificando"
                     android:textColor="#7A6899"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -176,7 +176,7 @@
                 android:layout_weight="0.5"
                 android:background="#3A2A55" />
 
-            <!-- Step 3: استخراج -->
+            <!-- Step 3: Extrayendo -->
             <LinearLayout
                 android:id="@+id/step_3_container"
                 android:layout_width="0dp"
@@ -190,7 +190,7 @@
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:gravity="center"
-                    android:text="۳"
+                    android:text="3"
                     android:textColor="#A69BBB"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -201,7 +201,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="استخراج"
+                    android:text="Extrayendo"
                     android:textColor="#7A6899"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -213,7 +213,7 @@
                 android:layout_weight="0.5"
                 android:background="#3A2A55" />
 
-            <!-- Step 4: پایان -->
+            <!-- Step 4: Listo -->
             <LinearLayout
                 android:id="@+id/step_4_container"
                 android:layout_width="0dp"
@@ -227,7 +227,7 @@
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:gravity="center"
-                    android:text="۴"
+                    android:text="4"
                     android:textColor="#A69BBB"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -238,7 +238,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="پایان"
+                    android:text="Listo"
                     android:textColor="#7A6899"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -255,7 +255,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:text="۰٪"
+                android:text="0%"
                 android:textColor="#F5A30A"
                 android:textSize="32sp"
                 android:textStyle="bold" />
@@ -266,7 +266,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignBaseline="@id/tv_progress_percent"
-                android:text="۰ از ۰ مگابایت"
+                android:text="0 de 0 MB"
                 android:textColor="#C3B5D9"
                 android:textSize="13sp" />
         </RelativeLayout>
@@ -293,7 +293,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:text="۰ KB/s"
+                android:text="0 KB/s"
                 android:textColor="#9E8FB2"
                 android:textSize="12sp" />
 
@@ -302,7 +302,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:text="--:-- باقی‌مانده"
+                android:text="--:-- restante"
                 android:textColor="#9E8FB2"
                 android:textSize="12sp" />
         </RelativeLayout>
@@ -314,7 +314,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:gravity="center"
-            android:text="در حال آماده‌سازی..."
+            android:text="Preparando..."
             android:textColor="#DFD7EE"
             android:textSize="13sp" />
 
@@ -333,7 +333,7 @@
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_weight="1"
-                android:text="توقف"
+                android:text="Pausar"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"
                 android:background="@drawable/glory_btn_secondary_selector" />
@@ -348,7 +348,7 @@
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_weight="1"
-                android:text="لغو"
+                android:text="Cancelar"
                 android:textColor="#C3B5D9"
                 android:textSize="14sp"
                 android:background="@drawable/glory_btn_secondary_selector" />
@@ -360,7 +360,7 @@
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:layout_marginTop="20dp"
-            android:text="تلاش مجدد"
+            android:text="Reintentar"
             android:textColor="#14091F"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -373,7 +373,7 @@
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:layout_marginTop="20dp"
-            android:text="ورود به بازی"
+            android:text="Jugar Ahora"
             android:textColor="#14091F"
             android:textSize="15sp"
             android:textStyle="bold"

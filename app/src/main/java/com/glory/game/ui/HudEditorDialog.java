@@ -59,19 +59,19 @@ public class HudEditorDialog extends Dialog {
 
     public enum Category {
 
-        ALL("همه", "All"),
+        ALL("Todos", "All"),
 
-        RADAR("🗺️ رادار", "Radar"),
+        RADAR("🗺️ Radar", "Radar"),
 
-        HEALTH_ARMOR("❤️ سلامت و زره", "Health & Armour"),
+        HEALTH_ARMOR("❤️ Salud y Chaleco", "Health & Armour"),
 
-        WEAPON("اسلحه و مهمات", "Weapons"),
+        WEAPON("Armas y munición", "Weapons"),
 
-        STATUS("وضعیت و نمایش", "Status & Info"),
+        STATUS("Estado y Pantalla", "Status & Info"),
 
-        BUTTONS("دکمه‌ها و کنترل", "Buttons & Controls"),
+        BUTTONS("Botones y Controles", "Buttons & Controls"),
 
-        VEHICLE("خودرو و سرعت‌سنج", "Vehicle & Speed");
+        VEHICLE("Vehículo y Velocímetro", "Vehicle & Speed");
 
 
 
@@ -157,49 +157,49 @@ public class HudEditorDialog extends Dialog {
 
             // Radar
 
-            new ElementDef(Hud.HUD_RADAR, Category.RADAR, "رادار و مینی‌مپ", "Radar / MiniMap", 1920, 1080, 250),
+            new ElementDef(Hud.HUD_RADAR, Category.RADAR, "Radar y Minimapa", "Radar / MiniMap", 1920, 1080, 250),
 
 
 
             // Health & Armour
 
-            new ElementDef(Hud.HUD_HP, Category.HEALTH_ARMOR, "سلامتی و درصد", "Health & Percentage", 1920, 1080, 400),
+            new ElementDef(Hud.HUD_HP, Category.HEALTH_ARMOR, "Salud y %", "Health & Percentage", 1920, 1080, 400),
 
-            new ElementDef(Hud.HUD_ARMOR, Category.HEALTH_ARMOR, "جلیقه و درصد", "Armour & Percentage", 1920, 1080, 400),
+            new ElementDef(Hud.HUD_ARMOR, Category.HEALTH_ARMOR, "Chaleco y %", "Armour & Percentage", 1920, 1080, 400),
 
 
 
             // Weapon & Ammo
 
-            new ElementDef(Hud.HUD_FIST, Category.WEAPON, "سلاح و شمارنده تیر", "Weapon & Ammo", 1920, 1080, 300),
+            new ElementDef(Hud.HUD_FIST, Category.WEAPON, "Arma y munición", "Weapon & Ammo", 1920, 1080, 300),
 
 
 
             // Status & Money & Info
 
-            new ElementDef(Hud.HUD_MONEY, Category.STATUS, "میزان پول", "Money Display", 1920, 1080, 450),
+            new ElementDef(Hud.HUD_MONEY, Category.STATUS, "Dinero", "Money Display", 1920, 1080, 450),
 
-            new ElementDef(Hud.HUD_WANTED, Category.STATUS, "ستاره‌های تعقیب", "Wanted Stars", 1920, 1080, 450),
+            new ElementDef(Hud.HUD_WANTED, Category.STATUS, "Estrellas de búsqueda", "Wanted Stars", 1920, 1080, 450),
 
-            new ElementDef(Hud.HUD_EAT, Category.STATUS, "میزان گرسنگی", "Hunger / Eat Bar", 1920, 1080, 350),
+            new ElementDef(Hud.HUD_EAT, Category.STATUS, "Hambre", "Hunger / Eat Bar", 1920, 1080, 350),
 
-            new ElementDef(Hud.HUD_KILL_LIST, Category.STATUS, "کیل‌لیست (کشتارها)", "Kill List", 1920, 1080, 250),
+            new ElementDef(Hud.HUD_KILL_LIST, Category.STATUS, "Lista de bajas", "Kill List", 1920, 1080, 250),
 
-            new ElementDef(Hud.HUD_CHAT, Category.STATUS, "تنظیمات پنجره چت", "Chat Window", 1000, 600, 70),
+            new ElementDef(Hud.HUD_CHAT, Category.STATUS, "Ajustes de Chat", "Chat Window", 1000, 600, 70),
 
 
 
             // Buttons & Controls
 
-            new ElementDef(Hud.HUD_SHOOT_BTN, Category.BUTTONS, "دکمه شلیک نشونه‌گیری", "Aim Fire Button", 1920, 1080, 250),
+            new ElementDef(Hud.HUD_SHOOT_BTN, Category.BUTTONS, "Botón disparar/apuntar", "Aim Fire Button", 1920, 1080, 250),
 
-            new ElementDef(Hud.HUD_TAB, Category.BUTTONS, "دکمه Tab (لیست بازیکنان)", "Tab Button", 1920, 1080, 300),
+            new ElementDef(Hud.HUD_TAB, Category.BUTTONS, "Botón TAB (Lista jugadores)", "Tab Button", 1920, 1080, 300),
 
-            new ElementDef(Hud.HUD_VOICE_BTN, Category.BUTTONS, "دکمه ویس‌چت", "Voice Chat Button", 1920, 1080, 300),
+            new ElementDef(Hud.HUD_VOICE_BTN, Category.BUTTONS, "Botón chat de voz", "Voice Chat Button", 1920, 1080, 300),
 
-            new ElementDef(Hud.HUD_ENTER_CAR_BTN, Category.BUTTONS, "دکمه ورود به خودرو", "Enter Car Button", 1920, 1080, 300),
+            new ElementDef(Hud.HUD_ENTER_CAR_BTN, Category.BUTTONS, "Botón subir al vehículo", "Enter Car Button", 1920, 1080, 300),
 
-            new ElementDef(Hud.HUD_CAMERA_BTN, Category.BUTTONS, "دکمه تعویض دوربین", "Camera Switch Button", 1920, 1080, 300),
+            new ElementDef(Hud.HUD_CAMERA_BTN, Category.BUTTONS, "Botón cambiar cámara", "Camera Switch Button", 1920, 1080, 300),
 
     };
 
@@ -327,7 +327,7 @@ public class HudEditorDialog extends Dialog {
 
         TextView title = new TextView(getContext());
 
-        title.setText("⚙️ ویرایشگر و تنظیمات جامع هود (HUD Editor)");
+        title.setText("⚙️ Editor completo de HUD");
 
         title.setTextColor(Color.WHITE);
 
@@ -343,7 +343,7 @@ public class HudEditorDialog extends Dialog {
 
         TextView hint = new TextView(getContext());
 
-        hint.setText("تغییرات به صورت زنده اعمال می‌شوند");
+        hint.setText("Los cambios se aplican en vivo");
 
         hint.setTextColor(0xFF81C784);
 
@@ -497,11 +497,11 @@ public class HudEditorDialog extends Dialog {
 
 
 
-        Button resetBtn = createActionButton("بازنشانی (Reset)", 0xFF37474F, 0xFFECEFF1);
+        Button resetBtn = createActionButton("Restablecer", 0xFF37474F, 0xFFECEFF1);
 
-        Button closeBtn = createActionButton("انصراف (Cancel)", 0xFF424242, 0xFFE0E0E0);
+        Button closeBtn = createActionButton("Cancelar", 0xFF424242, 0xFFE0E0E0);
 
-        Button saveBtn = createActionButton("ذخیره تغییرات (Save)", 0xFF2E7D32, 0xFFFFFFFF);
+        Button saveBtn = createActionButton("Guardar cambios", 0xFF2E7D32, 0xFFFFFFFF);
 
 
 
@@ -561,7 +561,7 @@ public class HudEditorDialog extends Dialog {
 
             }
 
-            Toast.makeText(getContext(), "تنظیمات هود به حالت پیش‌فرض بازگشت", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "HUD restablecido", Toast.LENGTH_SHORT).show();
 
         });
 
@@ -595,7 +595,7 @@ public class HudEditorDialog extends Dialog {
 
             hud.saveHudConfig();
 
-            Toast.makeText(getContext(), "تنظیمات هود ذخیره شد", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "HUD guardado", Toast.LENGTH_SHORT).show();
 
             dismiss();
 
@@ -821,7 +821,7 @@ public class HudEditorDialog extends Dialog {
 
         // Sliders: X, Y, Scale
 
-        row.barX = addSlider(card, "موقعیت افقی (X)", row.def.maxX, row.x, (val) -> {
+        row.barX = addSlider(card, "Posición X", row.def.maxX, row.x, (val) -> {
 
             row.x = val;
 
@@ -833,7 +833,7 @@ public class HudEditorDialog extends Dialog {
 
 
 
-        row.barY = addSlider(card, "موقعیت عمودی (Y)", row.def.maxY, row.y, (val) -> {
+        row.barY = addSlider(card, "Posición Y", row.def.maxY, row.y, (val) -> {
 
             row.y = val;
 
@@ -845,7 +845,7 @@ public class HudEditorDialog extends Dialog {
 
 
 
-        row.barScale = addScaleSlider(card, "مقیاس / اندازه (Scale)", row.def.maxScale, row.scale, (val) -> {
+        row.barScale = addScaleSlider(card, "Tamaño (Escala)", row.def.maxScale, row.scale, (val) -> {
 
             row.scale = val;
 
@@ -863,7 +863,7 @@ public class HudEditorDialog extends Dialog {
 
             int sensVal = (int) hud.hudSensitivity[Hud.HUD_SHOOT_BTN];
 
-            addSlider(card, "حساسیت چرخش دکمه شلیک (Sensitivity)", 800, sensVal, (val) -> {
+            addSlider(card, "Sensibilidad de apuntado", 800, sensVal, (val) -> {
 
                 hud.hudSensitivity[Hud.HUD_SHOOT_BTN] = val;
 
@@ -935,7 +935,7 @@ public class HudEditorDialog extends Dialog {
 
         TextView title = new TextView(getContext());
 
-        title.setText("🚗 کیلومتر شمار پیش‌فرض لانچر (Launcher Speedometer)");
+        title.setText("🚗 Velocímetro del Launcher");
 
         title.setTextColor(Color.WHITE);
 
@@ -949,7 +949,7 @@ public class HudEditorDialog extends Dialog {
 
         TextView desc = new TextView(getContext());
 
-        desc.setText("غیرفعال جهت جلوگیری از تداخل با سرعت‌سنج سرور (پیشنهادی)");
+        desc.setText("Desactivado para usar el velocímetro del servidor (Recomendado)");
 
         desc.setTextColor(0xFF9E9E9E);
 
@@ -973,9 +973,9 @@ public class HudEditorDialog extends Dialog {
 
             Speedometer.s_bEnableSpeedometer = isChecked;
 
-            desc.setText(isChecked ? "فعال (سرعت‌سنج عقربه‌ای لانچر نمایش داده می‌شود)" :
+            desc.setText(isChecked ? "Activado (Velocímetro del launcher)" :
 
-                    "غیرفعال جهت جلوگیری از تداخل با سرعت‌سنج سرور (پیشنهادی)");
+                    "Desactivado para usar el velocímetro del servidor (Recomendado)");
 
             desc.setTextColor(isChecked ? 0xFF81C784 : 0xFF9E9E9E);
 

@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="تنظیمات بازی"
+            android:text="Ajustes del Juego"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="• شخصی‌سازی هود و عملکرد"
+            android:text="• Personalización y rendimiento"
             android:textColor="#78909C"
             android:textSize="12sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_settings_title"
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="طرح رابط کاربری و هود (HUD Style)"
+                android:text="Estilo de Interfaz (HUD)"
                 android:textColor="#FFA000"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="سبک نمایش نقشه، نوار سلامت و دکمه‌های کنترل بازی را انتخاب کنید:"
+                android:text="Elige el estilo de mapa, barras y controles:"
                 android:textColor="#90A4AE"
                 android:textSize="11sp" />
 
@@ -130,7 +130,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="هود گلوری (Glory)"
+                            android:text="HUD Moderno"
                             android:textColor="#FFFFFF"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -149,7 +149,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="طراحی مدرن با رادار گرد اختصاصی، دسترسی سریع، منو، کیف و کلیدهای کنترل یکپارچه"
+                        android:text="Diseño moderno con radar circular, menú táctil y acceso rápido"
                         android:textColor="#B0BEC5"
                         android:textSize="11sp" />
                 </LinearLayout>
@@ -178,7 +178,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="هود کلاسیک (Classic)"
+                            android:text="HUD Clásico"
                             android:textColor="#FFFFFF"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -197,7 +197,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="طراحی کلاسیک سن‌آندریاس: رادار سمت چپ بالا، چت استاندارد، و دکمه‌های [ >> | Alt | Y | N | H ] و G"
+                        android:text="Diseño clásico San Andreas: radar arriba izquierda y botones [Y | N | H | G]"
                         android:textColor="#B0BEC5"
                         android:textSize="11sp" />
                 </LinearLayout>
@@ -213,7 +213,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="نرخ فریم و عملکرد (Performance)"
+                android:text="Rendimiento y FPS"
                 android:textColor="#FFA000"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -231,7 +231,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="محدودیت نرخ فریم (FPS Limit):"
+                    android:text="Límite de FPS:"
                     android:textColor="#ECEFF1"
                     android:textSize="12sp" />
 
@@ -311,7 +311,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="نمایش شمارشگر فریم (FPS Counter)"
+                            android:text="Mostrar FPS"
                             android:textColor="#FFFFFF"
                             android:textSize="13sp" />
 
@@ -319,7 +319,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="نمایش زنده تعداد فریم بر ثانیه در گوشه صفحه"
+                            android:text="Mostrar contador de FPS en pantalla"
                             android:textColor="#78909C"
                             android:textSize="10sp" />
                     </LinearLayout>
@@ -354,7 +354,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="اتصال سریع (Fast Connect)"
+                            android:text="Conexión rápida (Fast Connect)"
                             android:textColor="#FFFFFF"
                             android:textSize="13sp" />
 
@@ -362,7 +362,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="تلاش مداوم و سریع‌تر برای ورود به سرورهای شلوغ"
+                            android:text="Reconexión rápida automática"
                             android:textColor="#78909C"
                             android:textSize="10sp" />
                     </LinearLayout>
@@ -385,7 +385,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="پنجره چت (Chat Window)"
+                android:text="Ventana de Chat"
                 android:textColor="#FFA000"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -411,7 +411,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="اندازه قلم چت: 20pt"
+                        android:text="Tamaño de fuente del chat: 20pt"
                         android:textColor="#ECEFF1"
                         android:textSize="12sp" />
 
@@ -452,7 +452,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="عرض کادر چت: 45%"
+                        android:text="Ancho del chat: 45%"
                         android:textColor="#ECEFF1"
                         android:textSize="12sp" />
 
@@ -493,7 +493,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="تعداد خطوط چت: 7 خط"
+                        android:text="Líneas de chat: 7"
                         android:textColor="#ECEFF1"
                         android:textSize="12sp" />
 
@@ -525,7 +525,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="صدا و ارتباط (Audio &amp; Voice)"
+                android:text="Audio y Voz"
                 android:textColor="#FFA000"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -554,7 +554,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="ویس‌چت صوتی (Voice Chat)"
+                            android:text="Chat de Voz"
                             android:textColor="#FFFFFF"
                             android:textSize="13sp" />
 
@@ -562,7 +562,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="فعال‌سازی ارتباط صوتی آنلاین با سایر بازیکنان"
+                            android:text="Activar chat de voz online"
                             android:textColor="#78909C"
                             android:textSize="10sp" />
                     </LinearLayout>
@@ -595,7 +595,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/settings_pill_bg"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="بازنشانی پیش‌فرض"
+                    android:text="Restablecer valores"
                     android:textColor="#B0BEC5"
                     android:textSize="13sp" />
 
@@ -607,7 +607,7 @@
                     android:layout_weight="1.4"
                     android:background="@drawable/glory_btn_primary_amber"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="ذخیره تنظیمات"
+                    android:text="Guardar Ajustes"
                     android:textColor="#101014"
                     android:textSize="14sp"
                     android:textStyle="bold" />

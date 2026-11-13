@@ -63,7 +63,7 @@
                 android:textColor="#ffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="فروشگاه"
+                android:text="Tienda"
                 android:textAllCaps="true"
                 android:fontFamily="@font/montserrat_semibold"
                 android:layout_marginStart="@dimen/_5sdp"/>
@@ -92,7 +92,7 @@
                 android:textColor="#50ffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ارسال گزارش"
+                android:text="Enviar reporte"
                 android:textAllCaps="true"
                 android:fontFamily="@font/montserrat_semibold"
                 android:layout_marginStart="@dimen/_20sdp"/>
@@ -125,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="شروع بازی"
+                android:text="Iniciar Juego"
                 android:textAllCaps="true"
                 android:textColor="#ffffffff"
                 android:textSize="@dimen/_11sdp" />

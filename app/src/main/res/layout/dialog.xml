@@ -200,7 +200,7 @@
 
                     android:fontFamily="@font/muller_regular"
 
-                    android:hint="برای ورود متن اینجا لمس کنید..."
+                    android:hint="Toca aquí para escribir..."
 
                     android:imeOptions="flagNoExtractUi"
 
@@ -554,7 +554,7 @@
 
                         android:singleLine="true"
 
-                        android:text="ورود"
+                        android:text="Entrar"
 
                         android:textColor="#ffffffff"
 
@@ -622,7 +622,7 @@
 
                         android:singleLine="true"
 
-                        android:text="انصراف"
+                        android:text="Cancelar"
 
                         android:textColor="#ffffffff"
 

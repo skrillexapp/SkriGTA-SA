@@ -4,7 +4,7 @@ import java.util.Locale;
 
 public class PersianUtils {
 
-    private static final char[] PERSIAN_DIGITS = {'۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'};
+    private static final char[] PERSIAN_DIGITS = {'۰', '1', '2', '3', '4', '۵', '۶', '۷', '۸', '۹'};
 
     public static String toPersianDigits(int number) {
         return toPersianDigits(String.valueOf(number));
@@ -29,8 +29,8 @@ public class PersianUtils {
     }
 
     public static String formatBytes(long bytes) {
-        if (bytes <= 0) return toPersianDigits("0") + " بایت";
-        final String[] units = new String[]{"بایت", "کیلوبایت", "مگابایت", "گیگابایت", "ترابایت"};
+        if (bytes <= 0) return toPersianDigits("0") + " bytes";
+        final String[] units = new String[]{"bytes", "KB", "MB", "GB", "TB"};
         int digitGroups = (int) (Math.log10(bytes) / Math.log10(1024));
         if (digitGroups >= units.length) digitGroups = units.length - 1;
         double value = bytes / Math.pow(1024, digitGroups);

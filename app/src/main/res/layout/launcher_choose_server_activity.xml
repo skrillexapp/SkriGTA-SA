@@ -35,7 +35,7 @@
         app:layout_constraintBottom_toTopOf="@+id/back_btn"
         app:layout_constraintVertical_bias="0.5">
 
-        <!-- Title Pill ("انتخاب سرور") positioned above middle card -->
+        <!-- Title Pill ("Seleccionar Servidor") positioned above middle card -->
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="0dp"
@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="انتخاب سرور"
+            android:text="Seleccionar Servidor"
             android:textColor="#ffffff"
             android:textSize="11sp"
             app:layout_constraintStart_toStartOf="@+id/imageView1"
@@ -61,13 +61,13 @@
             app:layout_constraintTop_toTopOf="@+id/imageView1"
             app:layout_constraintBottom_toBottomOf="@+id/imageView1" />
 
-        <!-- Left Card: Forum ("ورود به انجمن") -->
+        <!-- Left Card: Forum ("Ir al Foro") -->
         <ImageView
             android:id="@+id/play_crime_btn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/server_click_1"
-            android:contentDescription="ورود به انجمن"
+            android:contentDescription="Ir al Foro"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
@@ -79,13 +79,13 @@
             app:layout_constraintWidth_percent="0.30"
             app:layout_constraintHeight_percent="0.75" />
 
-        <!-- Middle Card: Play Game ("ورود به بازی") -->
+        <!-- Middle Card: Play Game ("Jugar Ahora") -->
         <ImageView
             android:id="@+id/play_gold_btn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/server_click_2"
-            android:contentDescription="ورود به بازی"
+            android:contentDescription="Jugar Ahora"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
@@ -97,13 +97,13 @@
             app:layout_constraintWidth_percent="0.30"
             app:layout_constraintHeight_percent="0.75" />
 
-        <!-- Right Card: Website ("ورود به سایت") -->
+        <!-- Right Card: Website ("Ir al Portal") -->
         <ImageView
             android:id="@+id/play_rubl_btn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/server_click_3"
-            android:contentDescription="ورود به سایت"
+            android:contentDescription="Ir al Portal"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
@@ -117,7 +117,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Bottom Button: Back to Main Menu ("بازگشت به منوی اصلی") -->
+    <!-- Bottom Button: Back to Main Menu ("Volver al menú principal") -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/back_btn"
         android:layout_width="0dp"
@@ -136,7 +136,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="بازگشت به منوی اصلی"
+            android:text="Volver al menú principal"
             android:textColor="#ffffff"
             android:textSize="11sp"
             android:textAllCaps="true"

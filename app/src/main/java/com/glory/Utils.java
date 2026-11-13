@@ -331,9 +331,9 @@ public class Utils extends AppCompatActivity {
     public static String getDiagnosisInfo(Context context) {
         StringBuilder sb = new StringBuilder();
         boolean perm = hasStoragePermission(context);
-        sb.append("دسترسی حافظه (Storage Permission): ").append(perm ? "تایید شده (OK)" : "رد شده (DENIED!)").append("\n\n");
+        sb.append("Permiso de almacenamiento: ").append(perm ? "Permitido (OK)" : "Denegado").append("\n\n");
 
-        sb.append("بررسی پوشه‌ها:\n");
+        sb.append("Verificando carpetas:\n");
         String[] checks = new String[] {
             "/storage/emulated/0/GloryMobile/",
             "/storage/emulated/0/GloryMobile/files/",
@@ -344,12 +344,12 @@ public class Utils extends AppCompatActivity {
             File f = new File(p);
             sb.append("• ").append(p).append(" -> ");
             if (!f.exists()) {
-                sb.append("وجود ندارد (not found)\n");
+                sb.append("No encontrado\n");
             } else {
-                sb.append("پوشه هست. محتویات: ");
+                sb.append("Carpeta existente. Contenido: ");
                 String[] list = f.list();
                 if (list == null) {
-                    sb.append("عدم دسترسی به خواندن!\n");
+                    sb.append("Sin permiso de lectura\n");
                 } else {
                     sb.append(java.util.Arrays.toString(list)).append("\n");
                 }

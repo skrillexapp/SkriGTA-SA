@@ -70,7 +70,7 @@ android {
         minSdk 26
         targetSdk 34
         versionCode 113
-        versionName "GLORYRP"
+        versionName "1.0.0"
 
         multiDexEnabled true
 

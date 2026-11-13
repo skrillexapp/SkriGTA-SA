@@ -43,7 +43,7 @@ public class LoadingScreen {
                 gameStatusText = mainLayout.findViewById(R.id.game_status);
 
                 if (gameStatusText != null) {
-                    gameStatusText.setText("در حال ورود به بازی...");
+                    gameStatusText.setText("Entrando al servidor...");
                 }
 
                 ViewGroup rootView = (ViewGroup) activity.getWindow().getDecorView().getRootView();
@@ -124,7 +124,7 @@ public class LoadingScreen {
     public void setLoadingText(String text) {
         handler.post(() -> {
             if (gameStatusText != null) {
-                    gameStatusText.setText("در حال ورود به بازی...");
+                    gameStatusText.setText("Entrando al servidor...");
             }
         });
     }

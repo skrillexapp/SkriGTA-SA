@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         } catch (Exception e) {
-            Toasty.error(this, "امکان باز کردن پیوند وجود ندارد", Toast.LENGTH_SHORT).show();
+            Toasty.error(this, "No se puede abrir el enlace", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
         int remoteVerCode = manifest.getLauncher().getVersionCode();
         int currentVerCode = BuildConfig.VERSION_CODE;
 
-        if (remoteVerCode > 0 && remoteVerCode != currentVerCode) {
+        if (remoteVerCode > 0 && remoteVerCode > currentVerCode) {
             if (BuildConfig.DEBUG) {
                 Log.i(TAG, "Launcher version mismatch (DEBUG build, not blocking): " + currentVerCode + " vs " + remoteVerCode);
             } else {
@@ -383,8 +383,8 @@ public class MainActivity extends AppCompatActivity {
             case INCOMPLETE:
                 ivStatusIcon.setImageResource(R.drawable.ic_data_incomplete);
                 if (isInterrupted) {
-                    tvStatusDesc.setText("نصب ناتمام - ادامه دانلود");
-                    btnDownloadData.setText("ادامه نصب");
+                    tvStatusDesc.setText("Incompleto - Continuar descarga");
+                    btnDownloadData.setText("Continuar instalación");
                     btnDownloadData.setVisibility(View.VISIBLE);
                 } else {
                     tvStatusDesc.setText(R.string.home_data_incomplete);
@@ -396,7 +396,7 @@ public class MainActivity extends AppCompatActivity {
             default:
                 ivStatusIcon.setImageResource(R.drawable.ic_data_missing);
                 tvStatusDesc.setText(R.string.home_data_missing);
-                btnDownloadData.setText("دانلود دیتا");
+                btnDownloadData.setText("Descargar Datos");
                 btnDownloadData.setVisibility(View.VISIBLE);
                 break;
         }
@@ -405,10 +405,10 @@ public class MainActivity extends AppCompatActivity {
     private void checkStoragePermission() {
         if (!Utils.hasStoragePermission(this)) {
             new AlertDialog.Builder(this)
-                .setTitle("دسترسی حافظه لازم است")
-                .setMessage("برای خواندن دیتای بازی، لطفاً مجوز دسترسی به فایل‌ها را به برنامه بدهید.")
+                .setTitle("Permiso de almacenamiento requerido")
+                .setMessage("Por favor, concede permiso de almacenamiento para leer los archivos del juego.")
                 .setCancelable(true)
-                .setPositiveButton("باز کردن تنظیمات", (dialog, which) -> {
+                .setPositiveButton("Abrir Ajustes", (dialog, which) -> {
                     try {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                             Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
@@ -424,7 +424,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 })
-                .setNegativeButton("بعداً", (dialog, which) -> dialog.dismiss())
+                .setNegativeButton("Más tarde", (dialog, which) -> dialog.dismiss())
                 .show();
         }
     }
@@ -437,7 +437,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         this.doubleBackToExitPressedOnce = true;
-        Toasty.info(this, "برای خروج دوباره دکمه بازگشت را بزنید", Toast.LENGTH_SHORT).show();
+        Toasty.info(this, "Presiona atrás nuevamente para salir", Toast.LENGTH_SHORT).show();
 
         handler.postDelayed(() -> doubleBackToExitPressedOnce = false, 2000);
     }

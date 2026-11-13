@@ -47,11 +47,11 @@ public class ForceUpdateActivity extends AppCompatActivity {
 
         String currentVer = BuildConfig.VERSION_NAME;
         if (remoteVerName == null || remoteVerName.isEmpty()) {
-            remoteVerName = "جدید";
+            remoteVerName = "Nueva";
         }
 
-        String pillText = "نسخه فعلی: " + PersianUtils.toPersianDigits(currentVer)
-                + "  ←  نسخه جدید: " + PersianUtils.toPersianDigits(remoteVerName);
+        String pillText = "Versión actual: " + PersianUtils.toPersianDigits(currentVer)
+                + "  →  Nueva versión: " + PersianUtils.toPersianDigits(remoteVerName);
         tvVersionPill.setText(pillText);
 
         btnDownloadApk.setOnClickListener(v -> {
@@ -61,10 +61,10 @@ public class ForceUpdateActivity extends AppCompatActivity {
                     viewIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(viewIntent);
                 } catch (Exception e) {
-                    Toast.makeText(this, "امکان باز کردن لینک دانلود وجود ندارد", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "No se puede abrir el enlace de descarga", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(this, "لینک دانلود مشخص نشده است", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Enlace de descarga no especificado", Toast.LENGTH_SHORT).show();
             }
         });
     }
