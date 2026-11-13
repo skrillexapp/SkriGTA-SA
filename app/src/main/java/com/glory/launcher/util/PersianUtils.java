@@ -15,13 +15,8 @@ public class PersianUtils {
     }
 
     public static String toPersianDigits(String text) {
-        if (text == null) return "";
-        StringBuilder sb = new StringBuilder(text.length());
-        for (int i = 0; i < text.length(); i++) {
-            char ch = text.charAt(i);
-            if (ch >= '0' && ch <= '9') {
-                sb.append(PERSIAN_DIGITS[ch - '0']);
-            } else {
+        return text == null ? "" : text;
+    } else {
                 sb.append(ch);
             }
         }

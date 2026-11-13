@@ -139,6 +139,7 @@
     <!-- LEFT / START LINK RAIL -->
     <LinearLayout
         android:id="@+id/layout_social_rail"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_screen_edge"

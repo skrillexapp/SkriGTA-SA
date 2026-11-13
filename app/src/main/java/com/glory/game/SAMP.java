@@ -271,11 +271,6 @@ public class SAMP extends GTASA implements CustomKeyboard.InputListener, HeightP
 
         super.onCreate(savedInstanceState);
 
-        if (SignatureChecker.isSignatureValid(this, getPackageName())) {
-            Toast.makeText(this, "Use original launcher! No remake", Toast.LENGTH_LONG).show();
-            return;
-        }
-
         mKeyboard = new CustomKeyboard(this);
         mDialog = new DialogManager(this);
         mAttachEdit = new AttachEdit(this);
