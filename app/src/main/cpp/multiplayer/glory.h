@@ -4,7 +4,7 @@
 
 struct Glory
 {
-    std::string szHost = "play.glory-rp.ir";
+    std::string szHost = "10.25.60.18";
     int iPort = 7777;
 };
 

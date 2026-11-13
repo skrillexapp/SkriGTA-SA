@@ -293,7 +293,7 @@ public class Utils extends AppCompatActivity {
                 String iniContent = "[client]\n"
                         + "name=" + nick + "\n"
                         + "server=0\n"
-                        + "host=play.glory-rp.ir\n"
+                        + "host=10.25.60.18\n"
                         + "port=7777\n"
                         + "version=0.3.7\n"
                         + "password=\n"

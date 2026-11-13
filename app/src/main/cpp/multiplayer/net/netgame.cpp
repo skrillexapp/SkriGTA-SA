@@ -548,7 +548,7 @@ void CNetGame::ProcessConnecting()
 	if (GetTickCount() - m_dwLastConnectAttempt > 1000/*3000*/)
 	{
 		//if (pUI) pUI->chat()->addDebugMessage("Connecting to %s:%d...", m_szHostOrIp, m_iPort);
-		if (pUI) pUI->chat()->addDebugMessage("Dar hale vasl shodan be server...");
+		if (pUI) pUI->chat()->addDebugMessage("Conectando a Skriflix Roleplay...");
 
 		m_pRakClient->Connect(m_szHostOrIp, m_iPort, 0, 0, 2);
 
@@ -587,7 +587,7 @@ void CNetGame::Packet_AuthKey(Packet *pkt)
 // 0.3.7
 void CNetGame::Packet_ConnectAttemptFailed(Packet *pkt)
 {
-	if (pUI) pUI->chat()->addDebugMessage("Server pasokh nadad. Mojadadan talash mishavad...");
+	if (pUI) pUI->chat()->addDebugMessage("El servidor no respondio. Reintentando...");
 	if (pAudioStream) { //add new
 		pAudioStream->Stop(true);
 	}
@@ -601,7 +601,7 @@ void CNetGame::Packet_ConnectAttemptFailed(Packet *pkt)
 // 0.3.7
 void CNetGame::Packet_NoFreeIncomingConnections(Packet *pkt)
 {
-	if(pUI) pUI->chat()->addDebugMessage("Server por ast. Mojadadan talash mishavad...");
+	if(pUI) pUI->chat()->addDebugMessage("El servidor esta lleno. Reintentando...");
 	SpeakerList::Hide(); //addnew
 	MicroIcon::Hide();
 	SetGameState(GAMESTATE_WAIT_CONNECT);
@@ -612,7 +612,7 @@ void CNetGame::Packet_NoFreeIncomingConnections(Packet *pkt)
 // 0.3.7
 void CNetGame::Packet_DisconnectionNotification(Packet *pkt)
 {
-	if (pUI) pUI->chat()->addDebugMessage("Server etesal ra ghat kard.");
+	if (pUI) pUI->chat()->addDebugMessage("El servidor cerro la conexion.");
 	if (pAudioStream) {
 		pAudioStream->Stop(true);
 	}
@@ -639,7 +639,7 @@ void CNetGame::Packet_ConnectionSucceeded(Packet *pkt)
 	bsSuccAuth.Read(uiChallenge);
 	uiChallenge ^= iVersion;
 
-	if (pUI) pUI->chat()->addDebugMessage("Motesel shodid. Dar hale vorood be bazi...");
+	if (pUI) pUI->chat()->addDebugMessage("Conectado. Entrando al juego...");
 
 	SetGameState(GAMESTATE_AWAIT_JOIN);
 
@@ -677,17 +677,17 @@ void CNetGame::Packet_ConnectionSucceeded(Packet *pkt)
 // 0.3.7
 void CNetGame::Packet_FailedInitializeEncription(Packet *pkt)
 {
-	if (pUI) pUI->chat()->addDebugMessage("Khata dar sakhte ramznevisi.");
+	if (pUI) pUI->chat()->addDebugMessage("Error al inicializar la conexion segura.");
 }
 // 0.3.7
 void CNetGame::Packet_ConnectionBanned(Packet *pkt)
 {
-	if (pUI) pUI->chat()->addDebugMessage("Shoma az in server mahroom (Ban) hastid.");
+	if (pUI) pUI->chat()->addDebugMessage("Estas baneado de este servidor.");
 }
 // 0.3.7
 void CNetGame::Packet_InvalidPassword(Packet *pkt)
 {
-	if (pUI) pUI->chat()->addDebugMessage("Ramze vurood be server eshtebah ast.");
+	if (pUI) pUI->chat()->addDebugMessage("Contrasena del servidor incorrecta.");
 	m_pRakClient->Disconnect(0);
 }
 // 0.3.7
@@ -697,7 +697,7 @@ void CNetGame::Packet_ConnectionLost(Packet *pkt)
 		m_pRakClient->Disconnect(0);
 	}
 
-	if (pUI) pUI->chat()->addDebugMessage("Etesal ghat shod. Talashe mojadad baraye etesal...");
+	if (pUI) pUI->chat()->addDebugMessage("Conexion perdida. Reconectando...");
 	ShutdownForGameModeRestart();
 
 	CPlayerPool *pPlayerPool = GetPlayerPool();
