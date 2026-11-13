@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="Seleccionar Servidor"
+            android:text="Servidor Skriflix RP"
             android:textColor="#ffffff"
             android:textSize="11sp"
             app:layout_constraintStart_toStartOf="@+id/imageView1"
@@ -64,6 +64,7 @@
         <!-- Left Card: Forum ("Ir al Foro") -->
         <ImageView
             android:id="@+id/play_crime_btn"
+            android:visibility="gone"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/server_click_1"
@@ -90,8 +91,8 @@
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
             android:scaleType="fitCenter"
-            app:layout_constraintStart_toEndOf="@+id/play_crime_btn"
-            app:layout_constraintEnd_toStartOf="@+id/play_rubl_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintWidth_percent="0.30"
@@ -100,6 +101,7 @@
         <!-- Right Card: Website ("Ir al Portal") -->
         <ImageView
             android:id="@+id/play_rubl_btn"
+            android:visibility="gone"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/server_click_3"
