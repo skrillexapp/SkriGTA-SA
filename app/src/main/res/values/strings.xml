@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">SkriGTA-SA</string>
+    <string name="players_list_header_dialog">Lista de Jugadores</string>
+    <string name="players_list_header_first_column">ID</string>
+    <string name="players_list_header_fourth_column">Ping</string>
+    <string name="players_list_header_second_column">Nombre</string>
+    <string name="players_list_header_third_column">Nivel</string>
+    <string name="players_list_search_hint">Buscar jugador...</string>
+    <string name="buildVersion">SkriGTA-SA v1.0 (32/64-bit)</string>
+    <string name="enterNik">Ingresa tu nombre de personaje</string>
+    <string name="minLengthNik">El nombre debe tener al menos 4 caracteres</string>
+    <string name="mustContains_">El nombre debe incluir \"_\" (Ej: Carlos_Perez)</string>
+    <string name="nik">Nombre_Apellido</string>
+    <string name="game_files_not_found_title">Archivos del juego no encontrados</string>
+    <string name="game_files_not_found_desc">No se encontraron los datos del juego.\n\nColoca la carpeta de datos en:\n/storage/emulated/0/GloryMobile/\n\nIncluye: anim, audio, data, models, texdb y SAMP.\nLuego vuelve a abrir el juego.</string>
+    <string name="dialog_ok">Aceptar</string>
+
+    <!-- Launcher Home Strings -->
+    <string name="home_menu">Menú</string>
+    <string name="home_play">JUGAR AHORA</string>
+    <string name="home_nickname_hint">Nombre_Apellido</string>
+    <string name="home_data_status_title">Estado de los archivos</string>
+    <string name="home_data_complete">Archivos listos</string>
+    <string name="home_data_incomplete">Archivos incompletos</string>
+    <string name="home_data_missing">Faltan los archivos</string>
+    <string name="home_download_prompt">¿Deseas descargar los archivos del juego desde la red local?</string>
+    <string name="home_settings_soon">Ajustes disponibles próximamente</string>
+    <string name="home_data_needed_toast">Primero debes descargar los archivos del juego</string>
+    <string name="home_downloader_soon">Descargador automático listo</string>
+    <string name="desc_telegram">Chat SkriFlix</string>
+    <string name="desc_soroush">Portal SkriFlix</string>
+    <string name="desc_aparat">Panel SkriGTA</string>
+    <string name="desc_website">Sitio Web SkriFlix</string>
+    <string name="desc_settings">Ajustes</string>
+    <string name="desc_edit_nick">Editar nombre</string>
+    <string name="desc_play">Botón Jugar</string>
+    <string name="desc_data_status">Estado de los archivos</string>
+</resources>
