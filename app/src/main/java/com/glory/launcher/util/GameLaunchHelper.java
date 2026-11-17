@@ -77,6 +77,6 @@ public class GameLaunchHelper {
         }
 
         // 4. Handle Server Play (writes server & nickname to settings.ini and launches)
-        Utils.handleServerPlay(activity, activity, serverId);
+        ModSyncHelper.syncModsAndLaunch(activity, manifest, () -> Utils.handleServerPlay(activity, activity, serverId));
     }
 }

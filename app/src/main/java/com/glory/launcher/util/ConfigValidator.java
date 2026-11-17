@@ -1,6 +1,7 @@
 package com.glory.launcher.util;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 
 import java.io.File;
@@ -12,16 +13,39 @@ import java.io.OutputStream;
 public class ConfigValidator {
     public static void validateConfigFiles(Context context) {
         File externalFilesDir = context.getExternalFilesDir(null);
+        if (externalFilesDir == null) return;
+
         File file = new File(externalFilesDir, "SAMP/settings.ini");
         if (!file.exists()) {
             file.getParentFile().mkdirs();
             copyAsset(context.getAssets(), "settings.ini", file.toString());
         }
-        /*File file2 = new File(externalFilesDir, "gta_sa.set");
-        if (!file2.exists()) {
-            file2.getParentFile().mkdirs();
-            copyAsset(context.getAssets(), "gta_sa.set", file2.toString());
-        }*/
+
+        // Ensure all TouchDefault*.cfg files exist in files/data/ so widescreen touch controls render
+        String[] touchCfgs = new String[]{
+            "data/TouchDefaultPhone3x2.cfg",
+            "data/TouchDefaultPhoneWidescreen.cfg",
+            "data/TouchDefaultPhoneWidescreen2.cfg",
+            "data/TouchDefaultTablet4x3.cfg",
+            "data/TouchDefaultTabletWidescreen.cfg"
+        };
+        for (String cfg : touchCfgs) {
+            File target = new File(externalFilesDir, cfg);
+            if (!target.exists() || target.length() == 0) {
+                if (target.getParentFile() != null) target.getParentFile().mkdirs();
+                copyAsset(context.getAssets(), cfg, target.toString());
+            }
+        }
+
+        // One-time reset of stale gta_sa.set from base zip so GTA SA regenerates default touch controls
+        SharedPreferences prefs = context.getSharedPreferences("skrigta_fixes", Context.MODE_PRIVATE);
+        if (!prefs.getBoolean("touch_reset_v1", false)) {
+            File gtaset = new File(externalFilesDir, "gta_sa.set");
+            if (gtaset.exists()) {
+                gtaset.delete();
+            }
+            prefs.edit().putBoolean("touch_reset_v1", true).apply();
+        }
     }
 
     static boolean copyAsset(AssetManager assetManager, String str, String str2) {

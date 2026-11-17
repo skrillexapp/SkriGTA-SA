@@ -15,6 +15,9 @@ public class LauncherManifest {
     @SerializedName("data")
     private DataInfo data;
 
+    @SerializedName("mods")
+    private List<ModEntry> mods = new ArrayList<>();
+
     public int getSchema() {
         return schema;
     }
@@ -37,6 +40,14 @@ public class LauncherManifest {
 
     public void setData(DataInfo data) {
         this.data = data;
+    }
+
+    public List<ModEntry> getMods() {
+        return mods;
+    }
+
+    public void setMods(List<ModEntry> mods) {
+        this.mods = mods;
     }
 
     public static class LauncherInfo {
@@ -177,5 +188,27 @@ public class LauncherManifest {
         public void setSize(long size) {
             this.size = size;
         }
+    }
+
+    public static class ModEntry {
+        @SerializedName("id")
+        private String id;
+        @SerializedName("name")
+        private String name;
+        @SerializedName("file")
+        private String file;
+        @SerializedName("size")
+        private long size;
+        @SerializedName("sha256")
+        private String sha256;
+        @SerializedName("enabled")
+        private boolean enabled;
+
+        public String getId() { return id; }
+        public String getName() { return name; }
+        public String getFile() { return file; }
+        public long getSize() { return size; }
+        public String getSha256() { return sha256; }
+        public boolean isEnabled() { return enabled; }
     }
 }
