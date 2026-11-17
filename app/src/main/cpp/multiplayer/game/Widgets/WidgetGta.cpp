@@ -51,7 +51,8 @@ eWidgetState ProcessFixedWidget(CWidgetGta* pWidget)
 {
     WidgetIDs widgetType = GetWidgetTypeFromWidget(pWidget);
 
-    CPlayerPed *pPlayerPed = pGame->FindPlayerPed();
+    CPlayerPed *pPlayerPed = pGame ? pGame->FindPlayerPed() : nullptr;
+    if(!pPlayerPed) return STATE_NONE;
     switch(widgetType)
     {
         case -1:

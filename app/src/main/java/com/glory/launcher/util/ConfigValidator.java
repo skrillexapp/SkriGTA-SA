@@ -21,11 +21,9 @@ public class ConfigValidator {
             copyAsset(context.getAssets(), "settings.ini", file.toString());
         }
 
-        // Ensure all TouchDefault*.cfg files exist in files/data/ so widescreen touch controls render
         String[] touchCfgs = new String[]{
             "data/TouchDefaultPhone3x2.cfg",
             "data/TouchDefaultPhoneWidescreen.cfg",
-            "data/TouchDefaultPhoneWidescreen2.cfg",
             "data/TouchDefaultTablet4x3.cfg",
             "data/TouchDefaultTabletWidescreen.cfg"
         };
@@ -37,14 +35,16 @@ public class ConfigValidator {
             }
         }
 
-        // One-time reset of stale gta_sa.set from base zip so GTA SA regenerates default touch controls
+        // Undo v1.0.1 TouchDefaultPhoneWidescreen2.cfg + restore SAMP-safe gta_sa.set
         SharedPreferences prefs = context.getSharedPreferences("skrigta_fixes", Context.MODE_PRIVATE);
-        if (!prefs.getBoolean("touch_reset_v1", false)) {
-            File gtaset = new File(externalFilesDir, "gta_sa.set");
-            if (gtaset.exists()) {
-                gtaset.delete();
+        if (!prefs.getBoolean("touch_fix_v2", false)) {
+            File badOverlay = new File(externalFilesDir, "data/TouchDefaultPhoneWidescreen2.cfg");
+            if (badOverlay.exists()) {
+                badOverlay.delete();
             }
-            prefs.edit().putBoolean("touch_reset_v1", true).apply();
+            File gtaset = new File(externalFilesDir, "gta_sa.set");
+            copyAsset(context.getAssets(), "gta_sa.set", gtaset.toString());
+            prefs.edit().putBoolean("touch_fix_v2", true).apply();
         }
     }
 
