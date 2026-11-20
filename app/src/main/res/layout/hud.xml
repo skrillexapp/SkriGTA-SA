@@ -293,6 +293,22 @@
         app:layout_constraintStart_toEndOf="@+id/hud_money"
         app:layout_constraintTop_toBottomOf="@+id/radar_layout" />
 
+    <ImageView
+        android:id="@+id/hud_button_engine"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/weapon_bg"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="7dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/key"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hud_button_star" />
+
     <TextView
         android:id="@+id/hud_logo_text"
         android:layout_width="wrap_content"

@@ -97,7 +97,7 @@ public class Hud {
     public TextView health_text, armour_text, eat_text, hud_money, hud_ammo, hud_logo_text;
     public ImageView hud_logo_img;
     public ConstraintLayout samp_buttons_layout;
-    public ImageView hud_button_menu, hud_button_star, hud_button_inv, hud_button_shop, hud_button_help;
+    public ImageView hud_button_menu, hud_button_star, hud_button_inv, hud_button_shop, hud_button_help, hud_button_engine;
     public ImageView radar_zone;
     public ImageView radar_bg;
     public ConstraintLayout radar_layout, select_weapon, weapon_layout;
@@ -326,6 +326,27 @@ public class Hud {
             }
         });
 
+        if (hud_button_engine != null) {
+            hud_button_engine.setOnClickListener(new View.OnClickListener() {
+                private long lastEngineClickTick = 0;
+                @Override
+                public void onClick(View v) {
+                    long now = System.currentTimeMillis();
+                    if (now - lastEngineClickTick < 600) {
+                        return;
+                    }
+                    lastEngineClickTick = now;
+                    v.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.button_click));
+                    byte[] commandBytes = "/motor".getBytes();
+                    if (nvActivity != null) {
+                        nvActivity.sendCommand(commandBytes);
+                    } else {
+                        NvEventQueueActivity.getInstance().sendCommand(commandBytes);
+                    }
+                }
+            });
+        }
+
 
 
         setInvButtonClickListener(new View.OnClickListener() {
@@ -513,6 +534,7 @@ public class Hud {
         hud_button_inv = main_hud.findViewById(R.id.hud_button_inv);
         hud_button_shop = main_hud.findViewById(R.id.hud_button_shop);
         hud_button_help = main_hud.findViewById(R.id.hud_button_help);
+        hud_button_engine = main_hud.findViewById(R.id.hud_button_engine);
         radar_zone = main_hud.findViewById(R.id.radar_zone);
         radar_bg = main_hud.findViewById(R.id.imageView12);
         radar_layout = main_hud.findViewById(R.id.radar_layout);
